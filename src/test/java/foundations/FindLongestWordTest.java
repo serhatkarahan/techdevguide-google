@@ -78,4 +78,17 @@ public class FindLongestWordTest {
         //then
         assertThat(result).isEqualTo("abd");
     }
+
+    @Test
+    public void returns_the_longest_word_when_s_is_longer() {
+        //given
+        String s = "abppplee";
+        List<String> d = List.of("able", "ale", "apple", "bale", "kangaroo");
+
+        //when
+        String result = findLongestWord.solution(s, d);
+
+        //then
+        assertThat(result).isEqualTo("apple");
+    }
 }
