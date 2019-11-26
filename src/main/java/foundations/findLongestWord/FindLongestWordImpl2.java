@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 /*
     Preprocesses given string by building a char position map, therefore finding if a word is a subsequence of string is much faster
  */
@@ -52,11 +53,27 @@ public class FindLongestWordImpl2 implements FindLongestWord {
     }
 
     private int findSmallestNumberBiggerThanGiven(List<Integer> numbers, int given) {
-        for (int number : numbers) {
-            if (number > given) {
-                return number;
+        if (numbers.size() == 0) {
+            return -1;
+        }
+        if (numbers.size() == 1) {
+            if (numbers.get(0) > given) {
+                return numbers.get(0);
+            } else {
+                return -1;
             }
         }
-        return  -1;
+        int mid = numbers.size() / 2;
+        if (numbers.get(mid) > given) {
+            Integer biggerThanGiven = numbers.get(mid);
+            int smallestNumberBiggerThanGivenInSubList = findSmallestNumberBiggerThanGiven(numbers.subList(0, mid), given);
+            if (smallestNumberBiggerThanGivenInSubList == -1) {
+                return biggerThanGiven;
+            } else {
+                return smallestNumberBiggerThanGivenInSubList;
+            }
+        } else {
+            return findSmallestNumberBiggerThanGiven(numbers.subList(mid, numbers.size()), given);
+        }
     }
 }
