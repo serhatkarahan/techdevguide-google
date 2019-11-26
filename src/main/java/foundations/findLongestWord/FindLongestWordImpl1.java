@@ -2,7 +2,7 @@ package foundations.findLongestWord;
 
 import java.util.List;
 
-public class FindLongestWord1 implements FindLongestWord{
+public class FindLongestWordImpl1 implements FindLongestWord{
 
     public String solution(String s, List<String> d) {
         char[] sChars = s.toCharArray();
