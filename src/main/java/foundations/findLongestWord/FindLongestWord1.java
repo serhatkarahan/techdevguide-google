@@ -1,10 +1,10 @@
-package foundations;
+package foundations.findLongestWord;
 
 import java.util.List;
 
-public class FindLongestWord {
+public class FindLongestWord1 implements FindLongestWord{
 
-    public static String solution(String s, List<String> d) {
+    public String solution(String s, List<String> d) {
         char[] sChars = s.toCharArray();
         String result = "";
         for (String word : d) {
@@ -15,11 +15,11 @@ public class FindLongestWord {
         return result;
     }
 
-    private static boolean isLongerWord(String oldWord, String newWord) {
+    private boolean isLongerWord(String oldWord, String newWord) {
         return newWord.length() > oldWord.length();
     }
 
-    private static boolean isSubsequence(char[] sChars, String word) {
+    private boolean isSubsequence(char[] sChars, String word) {
         int i = 0;
         for (char c : sChars) {
             if (c == word.charAt(i)) {

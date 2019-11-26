@@ -1,5 +1,7 @@
 package foundations;
 
+import foundations.findLongestWord.FindLongestWord;
+import foundations.findLongestWord.FindLongestWord1;
 import org.junit.Test;
 
 import java.util.List;
@@ -9,6 +11,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class FindLongestWordTest {
 
+    FindLongestWord findLongestWord = new FindLongestWord1();
+
     @Test
     public void returns_empty_string_when_s_is_empty() {
         //given
@@ -16,7 +20,7 @@ public class FindLongestWordTest {
         List<String> d = List.of("a");
 
         //when
-        String result = FindLongestWord.solution(s, d);
+        String result = findLongestWord.solution(s, d);
 
         //then
         assertThat(result).isEqualTo("");
@@ -29,7 +33,7 @@ public class FindLongestWordTest {
         List<String> d = List.of("a");
 
         //when
-        String result = FindLongestWord.solution(s, d);
+        String result = findLongestWord.solution(s, d);
 
         //then
         assertThat(result).isEqualTo("a");
@@ -42,7 +46,7 @@ public class FindLongestWordTest {
         List<String> d = List.of("b", "a");
 
         //when
-        String result = FindLongestWord.solution(s, d);
+        String result = findLongestWord.solution(s, d);
 
         //then
         assertThat(result).isEqualTo("a");
@@ -55,7 +59,7 @@ public class FindLongestWordTest {
         List<String> d = List.of("b", "ab");
 
         //when
-        String result = FindLongestWord.solution(s, d);
+        String result = findLongestWord.solution(s, d);
 
         //then
         assertThat(result).isEqualTo("ab");
@@ -68,7 +72,7 @@ public class FindLongestWordTest {
         List<String> d = List.of("b", "ab", "abd");
 
         //when
-        String result = FindLongestWord.solution(s, d);
+        String result = findLongestWord.solution(s, d);
 
         //then
         assertThat(result).isEqualTo("abd");
