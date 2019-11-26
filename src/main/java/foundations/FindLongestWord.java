@@ -19,11 +19,9 @@ public class FindLongestWord {
     }
 
     private static boolean isSubsequence(String s, String word) {
-        char[] sChars = s.toCharArray();
-        char[] wordChars = word.toCharArray();
         int i = 0;
-        for (char c : sChars) {
-            if (c == wordChars[i]) {
+        for (char c : s.toCharArray()) {
+            if (c == word.charAt(i)) {
                 i++;
             }
             if (i == word.length()) {
