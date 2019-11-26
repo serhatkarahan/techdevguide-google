@@ -47,4 +47,17 @@ public class FindLongestWordTest {
         //then
         assertThat(result).isEqualTo("a");
     }
+
+    @Test
+    public void returns_the_longest_word_when_s_contains_the_word_without_any_chars_int_the_middle() {
+        //given
+        String s = "abc";
+        List<String> d = List.of("b", "ab");
+
+        //when
+        String result = FindLongestWord.solution(s, d);
+
+        //then
+        assertThat(result).isEqualTo("ab");
+    }
 }
