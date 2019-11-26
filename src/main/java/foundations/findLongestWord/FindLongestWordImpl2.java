@@ -42,18 +42,21 @@ public class FindLongestWordImpl2 implements FindLongestWord {
             if (letterPositions == null) {
                 return false;
             }
-            boolean notFound = true;
-            for (int position : letterPositions) {
-                if (position > currentPositionOnGivenString) {
-                    currentPositionOnGivenString = position;
-                    notFound = false;
-                    break;
-                }
-            }
-            if (notFound) {
+            int position = findSmallestNumberBiggerThanGiven(letterPositions, currentPositionOnGivenString);
+            if (position == -1) {
                 return false;
             }
+            currentPositionOnGivenString = position;
         }
         return true;
+    }
+
+    private int findSmallestNumberBiggerThanGiven(List<Integer> numbers, int given) {
+        for (int number : numbers) {
+            if (number > given) {
+                return number;
+            }
+        }
+        return  -1;
     }
 }
