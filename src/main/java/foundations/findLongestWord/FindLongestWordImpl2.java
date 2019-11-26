@@ -56,13 +56,6 @@ public class FindLongestWordImpl2 implements FindLongestWord {
         if (numbers.size() == 0) {
             return -1;
         }
-        if (numbers.size() == 1) {
-            if (numbers.get(0) > given) {
-                return numbers.get(0);
-            } else {
-                return -1;
-            }
-        }
         int mid = numbers.size() / 2;
         if (numbers.get(mid) > given) {
             Integer biggerThanGiven = numbers.get(mid);
@@ -73,7 +66,7 @@ public class FindLongestWordImpl2 implements FindLongestWord {
                 return smallestNumberBiggerThanGivenInSubList;
             }
         } else {
-            return findSmallestNumberBiggerThanGiven(numbers.subList(mid, numbers.size()), given);
+            return findSmallestNumberBiggerThanGiven(numbers.subList(mid + 1, numbers.size()), given);
         }
     }
 }
