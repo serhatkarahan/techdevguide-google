@@ -60,4 +60,17 @@ public class FindLongestWordTest {
         //then
         assertThat(result).isEqualTo("ab");
     }
+
+    @Test
+    public void returns_the_longest_word_when_s_contains_the_word_with_some_chars_int_the_middle() {
+        //given
+        String s = "abcd";
+        List<String> d = List.of("b", "ab", "abd");
+
+        //when
+        String result = FindLongestWord.solution(s, d);
+
+        //then
+        assertThat(result).isEqualTo("abd");
+    }
 }
