@@ -6,10 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 /*
-    Improving the greedy approach
-    Preprocesses given string by building a char position map, therefore finding if a word is a subsequence of string is much faster.
+    An optimal O(N+L) approach for small alphabets
  */
-public class FindLongestWordImpl2 implements FindLongestWord {
+public class FindLongestWordImpl3 implements FindLongestWord {
 
     public String solution(String s, List<String> d) {
         String result = "";

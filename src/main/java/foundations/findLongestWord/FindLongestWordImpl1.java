@@ -1,7 +1,9 @@
 package foundations.findLongestWord;
 
 import java.util.List;
-
+/*
+    Check each dictionary word using a greedy algorithm
+ */
 public class FindLongestWordImpl1 implements FindLongestWord{
 
     public String solution(String s, List<String> d) {
