@@ -19,7 +19,7 @@ public class CharPositionBuilderTest {
     }
 
     @Test
-    public void for_empty_string() {
+    public void for_single_letter() {
         //given
         String s = "a";
         
@@ -28,7 +28,7 @@ public class CharPositionBuilderTest {
 
         //then
         assertThat(result).isNotNull();
-        List<Integer> positionsForA = result.get('c');
+        List<Integer> positionsForA = result.get('a');
         assertThat(positionsForA).isNotNull().isEqualTo(List.of(-1));
     }
 }
