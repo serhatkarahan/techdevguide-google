@@ -9,13 +9,13 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-public class CharPositionBuilderTest {
+public class CharPositionDenseBuilderTest {
 
-    CharPositionBuilder charPositionBuilder;
+    CharPositionDenseBuilder charPositionDenseBuilder;
 
     @Before
     public void setUp() {
-        charPositionBuilder = new CharPositionBuilder();
+        charPositionDenseBuilder = new CharPositionDenseBuilder();
     }
 
     @Test
@@ -24,7 +24,7 @@ public class CharPositionBuilderTest {
         String s = "a";
 
         //when
-        Map<Character, List<Integer>> result = charPositionBuilder.buildDense(s);
+        Map<Character, List<Integer>> result = charPositionDenseBuilder.buildDense(s);
 
         //then
         assertThat(result).isNotNull();
@@ -38,7 +38,7 @@ public class CharPositionBuilderTest {
         String s = "aa";
 
         //when
-        Map<Character, List<Integer>> result = charPositionBuilder.buildDense(s);
+        Map<Character, List<Integer>> result = charPositionDenseBuilder.buildDense(s);
 
         //then
         assertThat(result).isNotNull();
