@@ -22,7 +22,7 @@ public class CharPositionBuilderTest {
     public void for_single_letter() {
         //given
         String s = "a";
-        
+
         //when
         Map<Character, List<Integer>> result = charPositionBuilder.buildDense(s);
 
@@ -30,5 +30,19 @@ public class CharPositionBuilderTest {
         assertThat(result).isNotNull();
         List<Integer> positionsForA = result.get('a');
         assertThat(positionsForA).isNotNull().isEqualTo(List.of(-1));
+    }
+
+    @Test
+    public void for_repeating_single_letter() {
+        //given
+        String s = "aa";
+
+        //when
+        Map<Character, List<Integer>> result = charPositionBuilder.buildDense(s);
+
+        //then
+        assertThat(result).isNotNull();
+        List<Integer> positionsForA = result.get('a');
+        assertThat(positionsForA).isNotNull().isEqualTo(List.of(1, -1));
     }
 }
