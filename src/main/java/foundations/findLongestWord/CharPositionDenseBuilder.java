@@ -14,6 +14,8 @@ public class CharPositionDenseBuilder {
                     for (int i = nextPositions.size() - 1; i >= 0; i--) {
                         if (nextPositions.get(i) == -1) {
                             nextPositions.set(i, indexOfS);
+                        } else {
+                            break;
                         }
                     }
                     nextPositions.add(indexOfS);
