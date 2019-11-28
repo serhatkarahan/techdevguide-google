@@ -4,21 +4,21 @@ import java.util.*;
 
 public class CharPositionDenseBuilder {
 
-    public Map<Character, List<Integer>> buildDense(String s) {
+    public Map<Character, List<Integer>> buildDense(String givenStringS) {
         Map<Character, List<Integer>> result = initializeResult();
-        for (int i = 1; i < s.length(); i++) {
-            char currentChar = s.charAt(i);
+        for (int indexOfS = 1; indexOfS < givenStringS.length(); indexOfS++) {
+            char currentChar = givenStringS.charAt(indexOfS);
             for (char c : result.keySet()) {
-                List<Integer> positionList = result.get(c);
+                List<Integer> nextPositions = result.get(c); // next positions of char given current index on the given string
                 if (c == currentChar) {
-                    for (int j = 0; j < positionList.size(); j++) {
-                        if (positionList.get(j) == -1) {
-                            positionList.set(j, i);
+                    for (int i = nextPositions.size() - 1; i >= 0; i--) {
+                        if (nextPositions.get(i) == -1) {
+                            nextPositions.set(i, indexOfS);
                         }
                     }
-                    positionList.add(i);
+                    nextPositions.add(indexOfS);
                 } else {
-                    positionList.add(-1);
+                    nextPositions.add(-1);
                 }
             }
         }
