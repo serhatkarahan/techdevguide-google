@@ -11,8 +11,6 @@ import java.util.*;
 public class FindLongestWordImpl4 implements FindLongestWord {
 
     public String solution(String s, List<String> d) {
-        String result = "";
-
         Map<Character, List<WordTuple>> wordsByLettersToBeFoundNextInS = initializeWordsByLetters(d);
         List<WordTuple> found  = new ArrayList<>();
         for (char c : s.toCharArray()) {
@@ -29,9 +27,7 @@ public class FindLongestWordImpl4 implements FindLongestWord {
                 });
                 wordTupleList.clear();
                 toBePlaced.forEach(toBePlacedWordTuple -> {
-                    List<WordTuple> updatedWordTupleList = wordsByLettersToBeFoundNextInS
-                            .getOrDefault(toBePlacedWordTuple.getCurrentLetter(), new ArrayList<>());
-                    updatedWordTupleList.add(toBePlacedWordTuple);
+                    List<WordTuple> updatedWordTupleList = addWordTupleToLetter(wordsByLettersToBeFoundNextInS, toBePlacedWordTuple);
                     wordsByLettersToBeFoundNextInS.put(toBePlacedWordTuple.getCurrentLetter(), updatedWordTupleList);
                 });
             }
@@ -46,11 +42,8 @@ public class FindLongestWordImpl4 implements FindLongestWord {
         List<WordTuple> wordTupleList = initializeWordTuples(d);
         Map<Character, List<WordTuple>> wordsByLettersToBeFoundNextInS = new HashMap<>();
         wordTupleList.forEach(wordTuple -> {
-            String word = wordTuple.getWord();
-            char firstLetter = word.charAt(0);
-            List<WordTuple> wordTuplesByLetter = wordsByLettersToBeFoundNextInS.getOrDefault(firstLetter, new ArrayList<>());
-            wordTuplesByLetter.add(wordTuple);
-            wordsByLettersToBeFoundNextInS.put(firstLetter, wordTuplesByLetter);
+            List<WordTuple> wordTuplesByLetter = addWordTupleToLetter(wordsByLettersToBeFoundNextInS, wordTuple);
+            wordsByLettersToBeFoundNextInS.put(wordTuple.getCurrentLetter(), wordTuplesByLetter);
         });
         return wordsByLettersToBeFoundNextInS;
     }
@@ -61,5 +54,12 @@ public class FindLongestWordImpl4 implements FindLongestWord {
             wordTupleList.add(new WordTuple(word));
         }
         return wordTupleList;
+    }
+
+    private List<WordTuple> addWordTupleToLetter(Map<Character, List<WordTuple>> wordsByLettersToBeFoundNextInS, WordTuple toBePlacedWordTuple) {
+        List<WordTuple> updatedWordTupleList = wordsByLettersToBeFoundNextInS
+                .getOrDefault(toBePlacedWordTuple.getCurrentLetter(), new ArrayList<>());
+        updatedWordTupleList.add(toBePlacedWordTuple);
+        return updatedWordTupleList;
     }
 }
