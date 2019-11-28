@@ -136,4 +136,24 @@ public class CharPositionDenseBuilderTest {
         List<Integer> positionsForC = result.get('c');
         assertThat(positionsForC).isNotNull().isEqualTo(List.of(2, 2, -1, -1));
     }
+
+    @Test
+    public void for_three_different_letters_and_two_letters_are_repeated_with_other_letters_between() {
+        //given
+        String s = "abcab";
+
+        //when
+        Map<Character, List<Integer>> result = charPositionDenseBuilder.buildDense(s);
+
+        //then
+        assertThat(result).isNotNull();
+        List<Integer> positionsForA = result.get('a');
+        assertThat(positionsForA).isNotNull().isEqualTo(List.of(3, 3, 3, -1, -1));
+
+        List<Integer> positionsForB = result.get('b');
+        assertThat(positionsForB).isNotNull().isEqualTo(List.of(1, 4, 4, 4, -1));
+
+        List<Integer> positionsForC = result.get('c');
+        assertThat(positionsForC).isNotNull().isEqualTo(List.of(2, 2, -1, -1, -1));
+    }
 }
