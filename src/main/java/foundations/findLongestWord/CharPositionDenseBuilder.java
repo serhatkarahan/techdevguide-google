@@ -11,6 +11,11 @@ public class CharPositionDenseBuilder {
             for (char c : result.keySet()) {
                 List<Integer> positionList = result.get(c);
                 if (c == currentChar) {
+                    for (int j = 0; j < positionList.size(); j++) {
+                        if (positionList.get(j) == -1) {
+                            positionList.set(j, i);
+                        }
+                    }
                     positionList.add(i);
                 } else {
                     positionList.add(-1);
