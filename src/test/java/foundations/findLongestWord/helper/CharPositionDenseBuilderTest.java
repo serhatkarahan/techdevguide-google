@@ -1,4 +1,4 @@
-package foundations.findLongestWord;
+package foundations.findLongestWord.helper;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -24,7 +24,7 @@ public class CharPositionDenseBuilderTest {
         String s = "a";
 
         //when
-        Map<Character, List<Integer>> result = charPositionDenseBuilder.buildDense(s);
+        Map<Character, List<Integer>> result = charPositionDenseBuilder.build(s);
 
         //then
         assertThat(result).isNotNull();
@@ -38,7 +38,7 @@ public class CharPositionDenseBuilderTest {
         String s = "aa";
 
         //when
-        Map<Character, List<Integer>> result = charPositionDenseBuilder.buildDense(s);
+        Map<Character, List<Integer>> result = charPositionDenseBuilder.build(s);
 
         //then
         assertThat(result).isNotNull();
@@ -52,7 +52,7 @@ public class CharPositionDenseBuilderTest {
         String s = "aaa";
 
         //when
-        Map<Character, List<Integer>> result = charPositionDenseBuilder.buildDense(s);
+        Map<Character, List<Integer>> result = charPositionDenseBuilder.build(s);
 
         //then
         assertThat(result).isNotNull();
@@ -66,7 +66,7 @@ public class CharPositionDenseBuilderTest {
         String s = "ab";
 
         //when
-        Map<Character, List<Integer>> result = charPositionDenseBuilder.buildDense(s);
+        Map<Character, List<Integer>> result = charPositionDenseBuilder.build(s);
 
         //then
         assertThat(result).isNotNull();
@@ -83,7 +83,7 @@ public class CharPositionDenseBuilderTest {
         String s = "abc";
 
         //when
-        Map<Character, List<Integer>> result = charPositionDenseBuilder.buildDense(s);
+        Map<Character, List<Integer>> result = charPositionDenseBuilder.build(s);
 
         //then
         assertThat(result).isNotNull();
@@ -103,7 +103,7 @@ public class CharPositionDenseBuilderTest {
         String s = "abcc";
 
         //when
-        Map<Character, List<Integer>> result = charPositionDenseBuilder.buildDense(s);
+        Map<Character, List<Integer>> result = charPositionDenseBuilder.build(s);
 
         //then
         assertThat(result).isNotNull();
@@ -123,7 +123,7 @@ public class CharPositionDenseBuilderTest {
         String s = "abca";
 
         //when
-        Map<Character, List<Integer>> result = charPositionDenseBuilder.buildDense(s);
+        Map<Character, List<Integer>> result = charPositionDenseBuilder.build(s);
 
         //then
         assertThat(result).isNotNull();
@@ -143,7 +143,7 @@ public class CharPositionDenseBuilderTest {
         String s = "abcab";
 
         //when
-        Map<Character, List<Integer>> result = charPositionDenseBuilder.buildDense(s);
+        Map<Character, List<Integer>> result = charPositionDenseBuilder.build(s);
 
         //then
         assertThat(result).isNotNull();
@@ -163,7 +163,7 @@ public class CharPositionDenseBuilderTest {
         String s = "abppplee";
 
         //when
-        Map<Character, List<Integer>> result = charPositionDenseBuilder.buildDense(s);
+        Map<Character, List<Integer>> result = charPositionDenseBuilder.build(s);
 
         //then
         assertThat(result).isNotNull();

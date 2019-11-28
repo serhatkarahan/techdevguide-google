@@ -1,7 +1,8 @@
 package foundations.findLongestWord;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import foundations.findLongestWord.helper.CharFirstAppearanceBuilder;
+import foundations.findLongestWord.helper.CharPositionDenseBuilder;
+
 import java.util.List;
 import java.util.Map;
 
@@ -12,61 +13,36 @@ public class FindLongestWordImpl3 implements FindLongestWord {
 
     public String solution(String s, List<String> d) {
         String result = "";
-        Map<Character, List<Integer>> sCharPositions = buildCharPositions(s);
+        Map<Character, Integer> charFirstAppearances = new CharFirstAppearanceBuilder().build(s);
+        Map<Character, List<Integer>> sCharPositions = new CharPositionDenseBuilder().build(s);
+
         for (String word : d) {
-            if (isSubsequence(sCharPositions, word) && isLongerWord(result, word)) {
+            if (isSubsequence(charFirstAppearances, sCharPositions, word) && isLongerWord(result, word)) {
                 result = word;
             }
         }
         return result;
     }
 
-    private Map<Character, List<Integer>> buildCharPositions(String s) {
-        Map<Character, List<Integer>> sCharPositions = new HashMap<>();
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            List<Integer> positions = sCharPositions.getOrDefault(c, new ArrayList<>());
-            positions.add(i);
-            sCharPositions.put(c, positions);
-        }
-        return sCharPositions;
-    }
-
     private boolean isLongerWord(String oldWord, String newWord) {
         return newWord.length() > oldWord.length();
     }
 
-    private boolean isSubsequence(Map<Character, List<Integer>> sCharPositions, String word) {
-        int currentPositionOnGivenString = -1;
-        for (char c : word.toCharArray()) {
-            List<Integer> letterPositions = sCharPositions.get(c);
-            if (letterPositions == null) {
+    private boolean isSubsequence(Map<Character, Integer> charFirstAppearances,
+                                  Map<Character, List<Integer>> sCharPositions,
+                                  String word) {
+        char[] wordChars = word.toCharArray();
+        int currentPositionOnGivenString = charFirstAppearances.get(wordChars[0]);
+        if (currentPositionOnGivenString == -1) {
+            return false;
+        }
+        for (int i = 1; i < wordChars.length; i++) {
+            List<Integer> letterPositions = sCharPositions.get(wordChars[i]);
+            if (letterPositions.get(currentPositionOnGivenString) == -1) {
                 return false;
             }
-            int position = findSmallestNumberBiggerThanGiven(letterPositions, currentPositionOnGivenString);
-            if (position == -1) {
-                return false;
-            }
-            currentPositionOnGivenString = position;
+            currentPositionOnGivenString = letterPositions.get(currentPositionOnGivenString);
         }
         return true;
-    }
-
-    private int findSmallestNumberBiggerThanGiven(List<Integer> numbers, int given) {
-        if (numbers.size() == 0) {
-            return -1;
-        }
-        int mid = numbers.size() / 2;
-        if (numbers.get(mid) > given) {
-            Integer biggerThanGiven = numbers.get(mid);
-            int smallestNumberBiggerThanGivenInSubList = findSmallestNumberBiggerThanGiven(numbers.subList(0, mid), given);
-            if (smallestNumberBiggerThanGivenInSubList == -1) {
-                return biggerThanGiven;
-            } else {
-                return smallestNumberBiggerThanGivenInSubList;
-            }
-        } else {
-            return findSmallestNumberBiggerThanGiven(numbers.subList(mid + 1, numbers.size()), given);
-        }
     }
 }

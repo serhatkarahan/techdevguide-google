@@ -1,8 +1,5 @@
-package foundations;
+package foundations.findLongestWord;
 
-import foundations.findLongestWord.FindLongestWord;
-import foundations.findLongestWord.FindLongestWordImpl1;
-import foundations.findLongestWord.FindLongestWordImpl2;
 import org.junit.Test;
 
 import java.util.List;
@@ -12,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class FindLongestWordTest {
 
-    FindLongestWord findLongestWord = new FindLongestWordImpl2();
+    FindLongestWord findLongestWord = new FindLongestWordImpl3();
 
     @Test
     public void returns_empty_string_when_s_is_empty() {
