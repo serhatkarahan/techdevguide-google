@@ -156,4 +156,18 @@ public class CharPositionDenseBuilderTest {
         List<Integer> positionsForC = result.get('c');
         assertThat(positionsForC).isNotNull().isEqualTo(List.of(2, 2, -1, -1, -1));
     }
+
+    @Test
+    public void for_five_different_letters() {
+        //given
+        String s = "abppplee";
+
+        //when
+        Map<Character, List<Integer>> result = charPositionDenseBuilder.buildDense(s);
+
+        //then
+        assertThat(result).isNotNull();
+        List<Integer> positionsForA = result.get('p');
+        assertThat(positionsForA).isNotNull().isEqualTo(List.of(2, 2, 3, 4, -1, -1, -1, -1));
+    }
 }
