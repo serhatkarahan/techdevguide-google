@@ -8,9 +8,14 @@ public class CharPositionDenseBuilder {
         Map<Character, List<Integer>> result = initializeResult();
         for (int i = 1; i < s.length(); i++) {
             char currentChar = s.charAt(i);
-            List<Integer> positionList = result.get(currentChar);
-            positionList.add(i);
-            result.put(currentChar, positionList);
+            for (char c : result.keySet()) {
+                List<Integer> positionList = result.get(c);
+                if (c == currentChar) {
+                    positionList.add(i);
+                } else {
+                    positionList.add(-1);
+                }
+            }
         }
         result.values().forEach(positionList -> positionList.add(-1));
         return result;

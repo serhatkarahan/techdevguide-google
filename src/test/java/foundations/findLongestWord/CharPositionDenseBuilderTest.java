@@ -33,7 +33,7 @@ public class CharPositionDenseBuilderTest {
     }
 
     @Test
-    public void for_repeating_single_letter() {
+    public void for_repeating_single_letter_twice() {
         //given
         String s = "aa";
 
@@ -44,5 +44,36 @@ public class CharPositionDenseBuilderTest {
         assertThat(result).isNotNull();
         List<Integer> positionsForA = result.get('a');
         assertThat(positionsForA).isNotNull().isEqualTo(List.of(1, -1));
+    }
+
+    @Test
+    public void for_repeating_single_letter_three_times() {
+        //given
+        String s = "aaa";
+
+        //when
+        Map<Character, List<Integer>> result = charPositionDenseBuilder.buildDense(s);
+
+        //then
+        assertThat(result).isNotNull();
+        List<Integer> positionsForA = result.get('a');
+        assertThat(positionsForA).isNotNull().isEqualTo(List.of(1, 2, -1));
+    }
+
+    @Test
+    public void for_two_different_letters() {
+        //given
+        String s = "ab";
+
+        //when
+        Map<Character, List<Integer>> result = charPositionDenseBuilder.buildDense(s);
+
+        //then
+        assertThat(result).isNotNull();
+        List<Integer> positionsForA = result.get('a');
+        assertThat(positionsForA).isNotNull().isEqualTo(List.of(-1, -1));
+
+        List<Integer> positionsForB = result.get('b');
+        assertThat(positionsForB).isNotNull().isEqualTo(List.of(1, -1));
     }
 }
