@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class FindLongestWordTest {
 
-    FindLongestWord findLongestWord = new FindLongestWordImpl3();
+    FindLongestWord findLongestWord = new FindLongestWordImpl4();
 
     @Test
     public void returns_empty_string_when_s_is_empty() {
