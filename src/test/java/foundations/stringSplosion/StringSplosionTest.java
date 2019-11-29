@@ -26,4 +26,28 @@ public class StringSplosionTest {
         //then
         assertThat(solution).isEqualTo("a");
     }
+
+    @Test
+    public void two_repeating_letters() {
+        //given
+        String s = "aa";
+
+        //when
+        String solution = stringSplosion.solution(s);
+
+        //then
+        assertThat(solution).isEqualTo("aaa");
+    }
+
+    @Test
+    public void any_string() {
+        //given
+        String s = "Code";
+
+        //when
+        String solution = stringSplosion.solution(s);
+
+        //then
+        assertThat(solution).isEqualTo("CCoCodCode");
+    }
 }
