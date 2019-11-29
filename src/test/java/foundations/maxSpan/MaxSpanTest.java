@@ -15,26 +15,9 @@ public class MaxSpanTest {
     }
 
     @Test
-    public void single_value() {
-        //given
-        int[] nums = {1};
+    public void tests() {
+        assertThat(maxSpan.solution(new int[]{1})).isEqualTo(1);
 
-        //when
-        int solution = maxSpan.solution(nums);
-
-        //then
-        assertThat(solution).isEqualTo(1);
-    }
-
-    @Test
-    public void two_numbers_with_same_value() {
-        //given
-        int[] nums = {1,1};
-
-        //when
-        int solution = maxSpan.solution(nums);
-
-        //then
-        assertThat(solution).isEqualTo(2);
+        assertThat(maxSpan.solution(new int[]{1,1})).isEqualTo(2);
     }
 }
