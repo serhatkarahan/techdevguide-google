@@ -7,6 +7,9 @@ import java.util.OptionalInt;
 public class MaxSpan {
 
     public int solution(int[] nums) {
+        if (nums.length == 0) {
+            return 0;
+        }
         Map<Integer, int[]> seenIndexes = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             int num = nums[i];
