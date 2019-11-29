@@ -18,6 +18,8 @@ public class MaxSpanTest {
     public void tests() {
         assertThat(maxSpan.solution(new int[]{1})).isEqualTo(1);
 
-        assertThat(maxSpan.solution(new int[]{1,1})).isEqualTo(2);
+        assertThat(maxSpan.solution(new int[]{1, 1})).isEqualTo(2);
+
+        assertThat(maxSpan.solution(new int[]{1, 1, 2})).isEqualTo(2);
     }
 }
