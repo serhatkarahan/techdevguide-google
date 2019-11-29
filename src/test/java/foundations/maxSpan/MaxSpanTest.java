@@ -21,5 +21,11 @@ public class MaxSpanTest {
         assertThat(maxSpan.solution(new int[]{1, 1})).isEqualTo(2);
 
         assertThat(maxSpan.solution(new int[]{1, 1, 2})).isEqualTo(2);
+
+        assertThat(maxSpan.solution(new int[]{1, 2, 1, 1, 3})).isEqualTo(4);
+
+        assertThat(maxSpan.solution(new int[]{1, 4, 2, 1, 4, 1, 4})).isEqualTo(6);
+
+        assertThat(maxSpan.solution(new int[]{1, 4, 2, 1, 4, 4, 4})).isEqualTo(6);
     }
 }
