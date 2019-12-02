@@ -49,4 +49,28 @@ public class SumNumbersTest {
         ///then
         assertThat(result).isEqualTo(123);
     }
+
+    @Test
+    public void case_4() {
+        //given
+        String str = "aa11b33";
+
+        //when
+        int result = sumNumbers.sumNumbers(str);
+
+        ///then
+        assertThat(result).isEqualTo(44);
+    }
+
+    @Test
+    public void case_5() {
+        //given
+        String str = "7 11";
+
+        //when
+        int result = sumNumbers.sumNumbers(str);
+
+        ///then
+        assertThat(result).isEqualTo(18);
+    }
 }
