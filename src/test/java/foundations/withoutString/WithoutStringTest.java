@@ -104,4 +104,43 @@ public class WithoutStringTest {
         //then
         assertThat(solution).isEqualTo("b");
     }
+
+    @Test
+    public void case_8() {
+        //given
+        String base = "aaa";
+        String remove = "aa";
+
+        //when
+        String solution = withoutString.solution(base, remove);
+
+        //then
+        assertThat(solution).isEqualTo("a");
+    }
+
+    @Test
+    public void case_9() {
+        //given
+        String base = "Hello there";
+        String remove = "llo";
+
+        //when
+        String solution = withoutString.solution(base, remove);
+
+        //then
+        assertThat(solution).isEqualTo("He there");
+    }
+
+    @Test
+    public void case_10() {
+        //given
+        String base = "Hello there";
+        String remove = "e";
+
+        //when
+        String solution = withoutString.solution(base, remove);
+
+        //then
+        assertThat(solution).isEqualTo("Hllo thr");
+    }
 }
