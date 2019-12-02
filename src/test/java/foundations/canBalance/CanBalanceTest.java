@@ -17,7 +17,7 @@ public class CanBalanceTest {
     @Test
     public void case_1() {
         //given
-        int[] nums = new int[]{1,1};
+        int[] nums = new int[]{1, 1};
 
         //when
         boolean result = canBalance.canBalance(nums);
@@ -29,7 +29,7 @@ public class CanBalanceTest {
     @Test
     public void case_2() {
         //given
-        int[] nums = new int[]{1,2};
+        int[] nums = new int[]{1, 2};
 
         //when
         boolean result = canBalance.canBalance(nums);
@@ -41,7 +41,7 @@ public class CanBalanceTest {
     @Test
     public void case_3() {
         //given
-        int[] nums = new int[]{1,1,2};
+        int[] nums = new int[]{1, 1, 2};
 
         //when
         boolean result = canBalance.canBalance(nums);
@@ -53,7 +53,7 @@ public class CanBalanceTest {
     @Test
     public void case_4() {
         //given
-        int[] nums = new int[]{2,1,1};
+        int[] nums = new int[]{2, 1, 1};
 
         //when
         boolean result = canBalance.canBalance(nums);
