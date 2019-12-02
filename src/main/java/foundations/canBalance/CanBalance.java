@@ -17,10 +17,8 @@ public class CanBalance {
                     sumLeft += nums[left];
                     right--;
                     sumRight += nums[right];
-                } else if (right - left == 1) {
-                    return true;
                 } else {
-                    return false;
+                    return right - left == 1;
                 }
             } else {
                 if (sumLeft < sumRight) {

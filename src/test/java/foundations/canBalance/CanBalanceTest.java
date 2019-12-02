@@ -37,4 +37,16 @@ public class CanBalanceTest {
         ///then
         assertThat(result).isFalse();
     }
+
+    @Test
+    public void case_3() {
+        //given
+        int[] nums = new int[]{1,1,2};
+
+        //when
+        boolean result = canBalance.canBalance(nums);
+
+        ///then
+        assertThat(result).isTrue();
+    }
 }
