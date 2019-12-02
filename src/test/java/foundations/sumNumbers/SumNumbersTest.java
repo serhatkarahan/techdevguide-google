@@ -25,4 +25,16 @@ public class SumNumbersTest {
         ///then
         assertThat(result).isEqualTo(0);
     }
+
+    @Test
+    public void case_2() {
+        //given
+        String str = "1";
+
+        //when
+        int result = sumNumbers.sumNumbers(str);
+
+        ///then
+        assertThat(result).isEqualTo(1);
+    }
 }
