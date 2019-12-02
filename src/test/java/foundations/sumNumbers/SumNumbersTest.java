@@ -37,4 +37,16 @@ public class SumNumbersTest {
         ///then
         assertThat(result).isEqualTo(1);
     }
+
+    @Test
+    public void case_3() {
+        //given
+        String str = "abc123xyz";
+
+        //when
+        int result = sumNumbers.sumNumbers(str);
+
+        ///then
+        assertThat(result).isEqualTo(123);
+    }
 }
