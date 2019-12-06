@@ -1,5 +1,6 @@
 package foundations.hangman;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -10,10 +11,12 @@ public class Game {
 
     private String word;
     private int numberOfGuessesLeft;
+    private List<Character> foundLetters;
 
     public void play(){
         welcome();
         initialize();
+        displayCurrentStateOfWord();
     }
 
     private void welcome() {
@@ -23,9 +26,21 @@ public class Game {
     private void initialize() {
         numberOfGuessesLeft = NUMBER_OF_ALLOWED_GUESSES;
         word = retrieveRandomWord();
+        foundLetters = new ArrayList<>();
     }
 
     private String retrieveRandomWord() {
         return WORDS.get(new Random().nextInt(WORDS.size()));
+    }
+
+    private void displayCurrentStateOfWord() {
+        for (char c : word.toCharArray()) {
+            if (foundLetters.contains(c)) {
+                System.out.print(c);
+            } else {
+                System.out.print("_");
+            }
+            System.out.print(" ");
+        }
     }
 }
