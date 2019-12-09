@@ -19,8 +19,7 @@ public class Game {
         initialize();
         Scanner sc = new Scanner(System.in);
         while (!lettersRemainingInWord.isEmpty() && numberOfGuessesLeft > 0) {
-            System.out.println("The word now looks like this: " + retrieveCurrentStateOfWord());
-            System.out.println("You have " + numberOfGuessesLeft + " guesses left.");
+            printCurrentState();
             System.out.print("Your guess: ");
             String guess = sc.next();
             char guessAsUpperCaseChar = guess.toUpperCase().charAt(0);
@@ -36,13 +35,7 @@ public class Game {
                 numberOfGuessesLeft--;
             }
         }
-        if (lettersRemainingInWord.isEmpty()) {
-            System.out.println("Congratulations, you found the word! The word was: " + word);
-            System.out.println("You win!");
-        } else {
-            System.out.println("Sorry, you have used all of your guesses! The word was: " + word);
-            System.out.println("You lose!");
-        }
+        finishGame();
     }
 
     private void welcome() {
@@ -62,6 +55,11 @@ public class Game {
         return WORDS.get(new Random().nextInt(WORDS.size()));
     }
 
+    private void printCurrentState() {
+        System.out.println("The word now looks like this: " + retrieveCurrentStateOfWord());
+        System.out.println("You have " + numberOfGuessesLeft + " guesses left.");
+    }
+
     private String retrieveCurrentStateOfWord() {
         StringBuilder sb = new StringBuilder();
         for (char c : word.toCharArray()) {
@@ -72,5 +70,15 @@ public class Game {
             }
         }
         return sb.toString();
+    }
+
+    private void finishGame() {
+        if (lettersRemainingInWord.isEmpty()) {
+            System.out.println("Congratulations, you found the word! The word was: " + word);
+            System.out.println("You win!");
+        } else {
+            System.out.println("Sorry, you have used all of your guesses! The word was: " + word);
+            System.out.println("You lose!");
+        }
     }
 }
