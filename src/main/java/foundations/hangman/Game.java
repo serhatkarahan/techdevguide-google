@@ -1,12 +1,16 @@
 package foundations.hangman;
 
+import java.io.BufferedReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class Game {
 
     private static final int NUMBER_OF_ALLOWED_GUESSES = 8;
-    private static final List<String> WORDS = List.of("BUOY", "COMPUTER", "CONNOISSEUR", "DEHYDRATE", "FUZZY", "HUBBUB", "KEYHOLE", "QUAGMIRE", "SLITHER", "ZIRCON");
+    private static List<String> WORDS = new ArrayList<>();
     public static final String DASH = "_";
 
     private String word;
@@ -50,6 +54,16 @@ public class Game {
     }
 
     private String retrieveRandomWord() {
+        try {
+            Path path = Paths.get("src/main/java/foundations/hangman/HangmanLexicon.txt");
+            BufferedReader bufferedReader = Files.newBufferedReader(path);
+            String word;
+            while ((word = bufferedReader.readLine()) != null) {
+                WORDS.add(word);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return WORDS.get(new Random().nextInt(WORDS.size()));
     }
 
