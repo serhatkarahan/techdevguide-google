@@ -20,8 +20,7 @@ public class Game {
         Scanner sc = new Scanner(System.in);
         while (!lettersRemainingInWord.isEmpty() && numberOfGuessesLeft > 0) {
             printCurrentState();
-            System.out.print("Your guess: ");
-            String guess = sc.next();
+            String guess = retrieveGuess(sc);
             char guessAsUpperCaseChar = guess.toUpperCase().charAt(0);
             if (lettersRemainingInWord.contains(guessAsUpperCaseChar)) {
                 System.out.println("That guess is correct!");
@@ -29,7 +28,6 @@ public class Game {
                 lettersRemainingInWord.remove(guessAsUpperCaseChar);
             } else if (foundLetters.contains(guessAsUpperCaseChar)) {
                 System.out.println("You already guessed that letter!");
-                numberOfGuessesLeft--;
             } else {
                 System.out.println("There are no " + guess + "'s in that word.");
                 numberOfGuessesLeft--;
@@ -70,6 +68,21 @@ public class Game {
             }
         }
         return sb.toString();
+    }
+
+    private String retrieveGuess(Scanner sc) {
+        System.out.print("Your guess: ");
+        String guess = sc.next();
+        while (isNotLetter(guess)) {
+            System.out.println("Your guess is not valid, please enter a letter!");
+            System.out.print("Your guess: ");
+            guess = sc.next();
+        }
+        return guess;
+    }
+
+    private boolean isNotLetter(String s) {
+        return s.length() != 1 || !Character.isLetter(s.charAt(0));
     }
 
     private void finishGame() {
