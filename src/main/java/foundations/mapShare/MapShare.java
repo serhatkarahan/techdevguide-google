@@ -8,9 +8,7 @@ public class MapShare {
         if (map.containsKey("a")) {
             map.put("b", map.get("a"));
         }
-        if(map.containsKey("c")) {
-            map.remove("c");
-        }
+        map.remove("c");
         return map;
     }
 }
