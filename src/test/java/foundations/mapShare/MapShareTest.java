@@ -47,4 +47,18 @@ public class MapShareTest {
         assertThat(result.get("a")).isEqualTo("value");
         assertThat(result.get("b")).isEqualTo("value");
     }
+
+    @Test
+    public void should_remove_pair_when_key_is_c() {
+        //given
+        Map<String, String> map = new HashMap<>();
+        map.put("c", "value");
+
+        //when
+        Map<String, String> result = mapShare.mapShare(map);
+
+        ///then
+        assertThat(result).isNotNull();
+        assertThat(result).isEmpty();
+    }
 }
