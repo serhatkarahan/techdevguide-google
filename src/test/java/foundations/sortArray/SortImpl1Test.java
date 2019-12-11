@@ -3,6 +3,8 @@ package foundations.sortArray;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class SortImpl1Test {
@@ -20,9 +22,21 @@ public class SortImpl1Test {
         int[] input = {};
 
         //when
-        int[] result = this.sort.sort(input);
+        int[] result = sort.sort(input);
 
         ///then
         assertThat(result).isEmpty();
+    }
+
+    @Test
+    public void case_2() {
+        //given
+        int[] input = {1};
+
+        //when
+        int[] result = sort.sort(input);
+
+        ///then
+        assertThat(result).isEqualTo(new int[]{1});
     }
 }
