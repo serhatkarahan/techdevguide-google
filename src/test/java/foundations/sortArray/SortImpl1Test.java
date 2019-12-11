@@ -49,4 +49,16 @@ public class SortImpl1Test {
         ///then
         assertThat(result).isEqualTo(new int[]{1});
     }
+
+    @Test
+    public void case_4() {
+        //given
+        int[] input = {1, 2};
+
+        //when
+        int[] result = sort.sort(input);
+
+        ///then
+        assertThat(result).isEqualTo(new int[]{1, 2});
+    }
 }
