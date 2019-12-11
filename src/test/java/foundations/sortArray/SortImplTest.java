@@ -5,13 +5,13 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SortImpl1Test {
+public class SortImplTest {
 
     private Sort sort;
 
     @Before
     public void setUp() {
-        sort = new SortImpl1();
+        sort = new SortImpl2();
     }
 
     @Test
