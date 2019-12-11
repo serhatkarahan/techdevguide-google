@@ -59,6 +59,33 @@ public class SortImpl1Test {
         int[] result = sort.sort(input);
 
         ///then
+
+        assertThat(result).isEqualTo(new int[]{1, 2});
+    }
+
+    @Test
+    public void case_5() {
+        //given
+        int[] input = {2, 1};
+
+        //when
+        int[] result = sort.sort(input);
+
+        ///then
+
+        assertThat(result).isEqualTo(new int[]{1, 2});
+    }
+
+    @Test
+    public void case_6() {
+        //given
+        int[] input = {2, 2, 1};
+
+        //when
+        int[] result = sort.sort(input);
+
+        ///then
+
         assertThat(result).isEqualTo(new int[]{1, 2});
     }
 }
