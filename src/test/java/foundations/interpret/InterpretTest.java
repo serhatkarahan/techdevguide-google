@@ -3,8 +3,6 @@ package foundations.interpret;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class InterpretTest {
@@ -17,11 +15,25 @@ public class InterpretTest {
     }
 
     @Test
-    public void case_1() {
+    public void valid_input_case_1() {
         //given
         int value = 0;
         String[] commands = {};
         int[] args = {};
+
+        //when
+        int result = this.interpret.interpret(value, commands, args);
+
+        ///then
+        assertThat(result).isEqualTo(-1);
+    }
+
+    @Test
+    public void valid_input_case_2() {
+        //given
+        int value = 0;
+        String[] commands = {"+"};
+        int[] args = {1, 2};
 
         //when
         int result = this.interpret.interpret(value, commands, args);
@@ -70,5 +82,19 @@ public class InterpretTest {
 
         ///then
         assertThat(result).isEqualTo(-1);
+    }
+
+    @Test
+    public void case_5() {
+        //given
+        int value = 0;
+        String[] commands = {"*"};
+        int[] args = {1};
+
+        //when
+        int result = this.interpret.interpret(value, commands, args);
+
+        ///then
+        assertThat(result).isEqualTo(0);
     }
 }
