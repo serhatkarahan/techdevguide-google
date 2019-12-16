@@ -97,4 +97,18 @@ public class InterpretTest {
         ///then
         assertThat(result).isEqualTo(0);
     }
+
+    @Test
+    public void case_6() {
+        //given
+        int value = 3;
+        String[] commands = {"*", "+"};
+        int[] args = {2, 4};
+
+        //when
+        int result = this.interpret.interpret(value, commands, args);
+
+        ///then
+        assertThat(result).isEqualTo(10);
+    }
 }
