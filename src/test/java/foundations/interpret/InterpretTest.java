@@ -57,4 +57,18 @@ public class InterpretTest {
         ///then
         assertThat(result).isEqualTo(1);
     }
+
+    @Test
+    public void case_4() {
+        //given
+        int value = 0;
+        String[] commands = {"-"};
+        int[] args = {1};
+
+        //when
+        int result = this.interpret.interpret(value, commands, args);
+
+        ///then
+        assertThat(result).isEqualTo(-1);
+    }
 }
