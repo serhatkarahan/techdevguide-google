@@ -8,7 +8,7 @@ public class Interpret {
     private static final int DEFAULT_VALUE_FOR_INVALID_INPUT = -1;
 
     public int interpret(int value, String[] commands, int[] args) {
-        if (commands.length == 0 || commands.length != args.length) {
+        if ((commands.length == 0) || (commands.length != args.length)) {
             return DEFAULT_VALUE_FOR_INVALID_INPUT;
         }
 
