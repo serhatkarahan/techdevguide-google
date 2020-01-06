@@ -1,4 +1,4 @@
-package foundations;
+package foundations.wordLen;
 
 import org.junit.Before;
 import org.junit.Test;

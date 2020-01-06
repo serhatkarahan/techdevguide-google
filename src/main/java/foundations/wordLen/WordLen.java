@@ -1,4 +1,4 @@
-package foundations;
+package foundations.wordLen;
 
 import java.util.HashMap;
 import java.util.Map;
